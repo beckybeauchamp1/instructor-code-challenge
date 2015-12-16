@@ -30,14 +30,15 @@ var movies = {
       h3.setAttribute("class", i);
       var heart = document.createElement("p");
       heart.innerHTML = "&#10084";
-      heart.setAttribute=("class", movieArray[i].Title);
+      heart.setAttribute("class", "favorites");
+      heart.setAttribute("id", movieArray[i].Title);
       h3.innerHTML = movieArray[i].Title;
       info.innerHTML = "Published Year: " + movieArray[i].Year;
       div.appendChild(h3);
       h3.appendChild(div2);
       div2.appendChild(poster);
       div2.appendChild(info);
-      div2.appendChild(heart);
+      h3.appendChild(heart);
       movies.movieClick();
     }
   },
@@ -61,12 +62,35 @@ var movies = {
           e.target.children[0].style.display = "block";
           click++;
           console.log(click);
+          self.favoritesClick();
         }
         function HideMovieInfo(){
           e.target.children[0].style.display = "none";
           click = 0;
           console.log(click);
         }
+      });
+    }
+  },
+  favoritesClick: function(){
+    var self = this;
+    var favorites = document.getElementsByClassName('favorites');
+    var click = 0;
+    for(var i = 0; i < favorites.length; i++){
+      var current = favorites[i];
+
+      current.addEventListener("click", function(e){
+        !click ? addFavorite() : eraseFavorite();
+
+        function addFavorite(){
+          e.target.style.color = "red";
+          click++;
+        }
+        function eraseFavorite(){
+          e.target.style.color = "white";
+          click = 0;
+        }
+
       });
     }
   }
