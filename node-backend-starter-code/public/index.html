@@ -1,18 +1,43 @@
+n
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Movie SPA</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="/js/models/movie.js"></script>
-  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Radley' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <h1>Movies</h1>
-  <div class="form-group">
-    <label for="movie">Movie:</label>
-    <input type="text" class="form-control" id="movie">
+  <div class="main">
+    <div class="row">
+      <div class="signup forms">
+        <h2>Sign Up</h2>
+        <form>
+          <label for="firstname">firstname:</label>
+          <input type="text" placeholder="firstname" class="form-group" id="firstname">
+          <label for="lastname">lastname:</label>
+          <input type="text" placeholder="firstname" class="form-group" id="lastname">
+          <label for="email">email:</label>
+          <input type="text" placeholder="firstname" class="form-group" id="email">
+          <label for="password">password:</label>
+          <input type="text" placeholder="password" class="form-group" id="password">
+          <button type="submit" id="signupsubmit">Submit</button>
+        </form>
+      </div>
+      <div class="movies forms">
+        <h2>Movies</h2>
+        <p id="placeholder">Sign up to Find Movies!</p>
+        <div class="searchallmovies">
+          <input type="text" class="form-control" id="movie" placeholder="search movies!">
+          <button type="submit" id="submit">Submit</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <script src="/js/models/movie.js"></script>
+  <script src="/js/models/user.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

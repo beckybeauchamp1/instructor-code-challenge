@@ -1,16 +1,14 @@
 var express = require('express');
 var mongoose = require("mongoose");
-var app = express();
 mongoose.connect("mongodb://localhost/movies");
 var bodyParser = require("body-parser");
 var fs = require('fs');
 var path = require('path');
+var app = express();
 
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/favorites', function(req, res){
   var data = fs.readFileSync('./data.json');

@@ -1,0 +1,2 @@
+movies.buttonClick();
+users.buttonClick();
