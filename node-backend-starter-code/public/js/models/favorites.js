@@ -1,6 +1,6 @@
 var favs = {
   grabFavs: function(title){
-    console.log("FAVORITE " + title);
+    console.log("this is happening once");
     var fav = {
       title: title,
       favorite: true,
@@ -11,9 +11,16 @@ var favs = {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", url, true);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var message = JSON.parse(xmlhttp.responseText);
+        console.log(message);
+      }
+      else if(xmlhttp.status == 401){
+        var message = JSON.parse(xmlhttp.responseText);
+        console.log(message);
+      }
+    };
     xmlhttp.send(JSON.stringify(fav));
-    var response = xmlhttp.responseText;
-    JSON.parse(response);
-    console.log(response);
-  },
+  }
 };
