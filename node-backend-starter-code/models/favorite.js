@@ -1,5 +1,5 @@
 require("../db/schema");
 var mongoose = require("mongoose");
-var Favorite = mongoose.model("Favorite");
+var FavoriteModel = mongoose.model("Favorite");
 
-module.exports = Favorite;
+module.exports = FavoriteModel;

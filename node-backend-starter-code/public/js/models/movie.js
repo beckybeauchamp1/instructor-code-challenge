@@ -18,7 +18,6 @@ var movies = {
     var self = this;
     for(var i = 0; i < self.allMovies.Search.length; i ++){
       var movieArray = self.allMovies.Search;
-      console.log(movieArray);
       var div= document.getElementsByClassName("movies")[0];
       var div2 = document.createElement("div");
       div2.setAttribute("class", i);
@@ -50,18 +49,15 @@ var movies = {
   movieClick: function(){
     var self = this;
     var h3 = document.getElementsByTagName('h3');
-    console.log(h3.length);
     for(var i = 0; i < h3.length; i++){
       var click = 0;
       var currentMovie = h3[i];
-      console.log(currentMovie);
       currentMovie.addEventListener("click", function(e){
         !click ? ShowMovieInfo() : HideMovieInfo();
 
         function ShowMovieInfo(){
           e.target.children[0].style.display = "block";
           click++;
-          console.log(click);
           self.favoritesClick();
         }
         function HideMovieInfo(){
@@ -73,7 +69,6 @@ var movies = {
     }
   },
   favoritesClick: function(){
-    var self = this;
     var favorites = document.getElementsByClassName('favorites');
     var click = 0;
     for(var i = 0; i < favorites.length; i++){
@@ -83,7 +78,10 @@ var movies = {
         !click ? addFavorite() : eraseFavorite();
 
         function addFavorite(){
+          var self = e.target;
+          var title = self.id
           e.target.style.color = "red";
+          favs.grabFavs(title);
           click++;
         }
         function eraseFavorite(){

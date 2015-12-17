@@ -6,7 +6,6 @@ var bcrypt = require("bcrypt");
 
 var FavoriteSchema = new Schema ({
   title: String,
-  movie_id: String,
   favorite: Boolean,
   createdAt: {type: Date, default: Date.now},
   user: {type: ObjectId, ref: "User"}
