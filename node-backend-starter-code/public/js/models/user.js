@@ -30,6 +30,8 @@ var users = {
   // Need to push this signup and login code into one function and call it depending on signup versus logging in
   signup: function(evt){
     evt.preventDefault();
+    // signup had bugs, so placing function hideSignUp HERE:
+    users.hideSignUp();
     var firstname = document.getElementById("firstname").value;
     var lastname = document.getElementById("lastname").value;
     var email =  document.getElementById("email").value;
@@ -45,7 +47,7 @@ var users = {
       alert("You are missing all required fields!");
     }
     else{
-      var url = heroku + "/login";
+      var url = "http://localhost:3000/signup";
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open('POST', url, true);
       xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -66,6 +68,8 @@ var users = {
   },
   login: function(evt){
     evt.preventDefault();
+    // signup had bugs, so placing function hideSignUp HERE:
+    users.hideSignUp();
     var firstname = document.getElementById("firstname").value;
     var lastname = document.getElementById("lastname").value;
     var email =  document.getElementById("email").value;
@@ -81,7 +85,7 @@ var users = {
       alert("You are missing all required fields!");
     }
     else{
-      var url = heroku + "/login";
+      var url = "http://localhost:3000/login";
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open('POST', url, true);
       xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -90,12 +94,12 @@ var users = {
           var message = JSON.parse(xmlhttp.responseText);
           users.userInfo = message.user;
           users.requestMessage = message.message;
-          console.log(message.user);
           users.hideSignUp();
         }
         else if(xmlhttp.status == 401){
           var message = JSON.parse(xmlhttp.responseText);
           users.requestMessage = message.message;
+
         }
       };
       xmlhttp.send(JSON.stringify(user));
@@ -107,7 +111,7 @@ var users = {
     var self = this;
     var submit = document.getElementById("signupsubmit");
     var type = document.getElementsByClassName("signup")[0].children[0];
-    submit.classList.contains("login")? self.button.addEventListener("click", self.login) : self.button.addEventListener("click", self.signup);
+    submit.classList.contains("signup")? self.button.addEventListener("click", self.signup) : self.button.addEventListener("click", self.signup);
   },
   hideSignUp: function(){
     // want to take these into a separate object since I use these DOM elements frequently throughout my code
