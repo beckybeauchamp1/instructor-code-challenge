@@ -1,4 +1,3 @@
-n
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +5,6 @@ n
   <title>Movie SPA</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Radley' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -34,8 +32,12 @@ n
           <button type="submit" id="submit">Submit</button>
         </div>
       </div>
+      <div class = "favoritesDiv forms">
+        <h2>Favorites</h2>
+      </div>
     </div>
   </div>
+  <!--Because We are using Vanilla JS, I needed to include the script tags at the bottom of the html document, otherwise it will run before it has finished being processed.-->
   <script src="/js/models/user.js"></script>
   <script src="/js/models/favorites.js"></script>
   <script src="/js/models/movie.js"></script>

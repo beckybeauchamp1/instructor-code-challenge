@@ -2,8 +2,6 @@ var movies = {
   // object, pushing all movies from search
   allMovies: {},
 
-  favoriteMovies: [],
-
   createMovies: function(){
     var search = document.getElementById("movie").value;
     var url = 'http://www.omdbapi.com/?s=' + search;
@@ -18,6 +16,7 @@ var movies = {
   },
   makeGifs: function(){
     var self = this;
+    self.addFavoritesButton();
     for(var i = 0; i < self.allMovies.Search.length; i ++){
       var movieArray = self.allMovies.Search;
       var div= document.getElementsByClassName("movies")[0];
@@ -42,6 +41,15 @@ var movies = {
       h3.appendChild(heart);
       movies.movieClick();
     }
+    // calling event Listener when movies and favorite options appear
+    favs.clickSave();
+  },
+  addFavoritesButton: function(){
+    var button = document.createElement("button");
+    var div= document.getElementsByClassName("forms")[0];
+    button.innerHTML = "Save Favorites";
+    button.setAttribute("class", "saveFavorites");
+    div.appendChild(button);
   },
   button: document.getElementById("submit"),
   buttonClick: function(){
@@ -50,53 +58,43 @@ var movies = {
   },
   movieClick: function(){
     var self = this;
-    var h3 = document.getElementsByTagName('h3');
-    for(var i = 0; i < h3.length; i++){
-      var click = 0;
-      var currentMovie = h3[i];
-      currentMovie.addEventListener("click", function(e){
-        !click ? ShowMovieInfo() : HideMovieInfo();
-
-        function ShowMovieInfo(){
-          e.target.children[0].style.display = "block";
-          click++;
-          self.favoritesClick();
-        }
-        function HideMovieInfo(){
-          e.target.children[0].style.display = "none";
-          click = 0;
-          console.log(click);
-        }
-      });
-    }
-  },
-  favoritesClick: function(){
-    var favorites = document.getElementsByClassName('favorites');
+    var currentMovie = document.querySelectorAll('h3');
+    var currentFavorite = document.querySelectorAll("p");
     var click = 0;
-    for(var i = 0; i < favorites.length; i++){
-      var current = favorites[i];
-
-      current.addEventListener("click", createFavorites);
-
-      function createFavorites(e){
-        e.preventDefault();
-        var self = e.target;
-        !click ? addFavorite(self) : eraseFavorite(self);
-
-        function addFavorite(self){
-          console.log(self);
-          var title = self.id;
-          console.log(title);
-          e.target.style.color = "red";
-          movies.favoriteMovies.push(self);
-            // favs.grabFavs(title);
-          click++;
-        }
-        function eraseFavorite(){
-          e.target.style.color = "white";
-          click = 0;
-        }
-      }
+    for(var i = 0; i < currentMovie.length; i++){
+      currentMovie[i].addEventListener("click", clickEventFunction, false);
     }
+
+    function clickEventFunction(e) {
+      if (e.target !== e.currentTarget) {
+        var clickedItem = e.target.id;
+        click ? movies.addFavorite(e) : movies.eraseFavorite(e);
+      }
+      e.stopPropagation();
+      !click ? ShowMovieInfo(e) : HideMovieInfo(e);
+    }
+
+    function ShowMovieInfo(e){
+      click++;
+      e.target.children[0].style.display = "block";
+    }
+    function HideMovieInfo(e){
+      click = 0;
+      e.target.children[0].style.display = "none";
+      console.log(click);
+    }
+
+  },
+  addFavorite: function(e){
+    var title = e.target.id;
+    console.log(title);
+    e.target.style.color = "red";
+    e.target.setAttribute("class", "favorited");
+  },
+  eraseFavorite: function(e){
+    var title = e.target.id;
+    e.target.style.color = "white";
+    e.target.classList.remove("favorited");
   }
+
 };

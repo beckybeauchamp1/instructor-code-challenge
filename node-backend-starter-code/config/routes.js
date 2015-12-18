@@ -50,36 +50,36 @@ router.post("/login", function(req, res){
       }
     });
   }));
-    else {
-      console.log('failed');
-      return res.status(401).send({message: "Please try again or Sign Up"});
-    }
+  else {
+    console.log('failed');
+    return res.status(401).send({message: "Please try again or Sign Up"});
+  }
 });
 
 router.post("/favorites", function(req, res, callback){
   var newFav = new FavoriteModel(req.body);
-  if(FavoriteModel.findOne({title : req.body.title}, function(err, fav){
+  console.log(newFav);
+  FavoriteModel.findOne({title : req.body.title}, function(err, match){
+    console.log(match);
     // if there is an err will return a callback with that err from server
-    if(err){
-      return callback(err);
-    }
+    if(err) throw err;
     // if it finds a user with the same email address
-    else if(fav){
+    else if(match){
       console.log("ALREADY A FAV");
       return callback(null, false, res.status(401).send({message: "Favorite Has Already Been Saved"}));
     }
-  }));
-  else{
-    newFav.save(function(err, fav){
-      console.log("SAVING NEW")
-      if(err){
-        return res.status(401).send({message: "Error saving"});
-      }
-      else{
-        return res.status(200).send({message: "Your Movie Has Been Favorited!"});
-      }
-    });
-  }
+    else{
+      newFav.save(function(err, fav){
+        console.log("SAVING NEW");
+        if(err){
+          return res.status(401).send({message: "Error saving"});
+        }
+        else{
+          return res.status(200).send({message: "Your Movie Has Been Favorited!"});
+        }
+      });
+    }
+  });
 });
 
 

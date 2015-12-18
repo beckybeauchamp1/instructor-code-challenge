@@ -15,24 +15,6 @@ app.use(cookieParser("movies"));
 app.use(session({resave: true, saveUninitialized: true, secret: 'movies', cookie: { expires: false }}));
 
 
-app.get('/favorites', function(req, res){
-  var data = fs.readFileSync('./data.json');
-  res.setHeader('Content-Type', 'application/json');
-  res.send(data);
-});
-
-app.get('favorites', function(req, res){
-  if(!req.body.name || !req.body.oid){
-    res.send("Error");
-  }
-});
-//
-// var data = JSON.parse(fs.readFileSync('./data.json'));
-// data.push(req.body);
-// fs.writeFile('./data.json', JSON.stringify(data));
-// res.setHeader('Content-Type', 'application/json');
-// res.send(data);
-
 var routes = require("./config/routes");
 app.use(routes);
 

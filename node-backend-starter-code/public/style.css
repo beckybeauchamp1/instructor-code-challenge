@@ -7,6 +7,16 @@ body{
   font-family: "Raleway";
   margin: 0 auto;
 }
+form{
+  margin: 0 auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+div{
+  font-size: 14px;
+  color: white;
+}
 .form-group{
   display: block;
   margin: 4px;
@@ -19,20 +29,9 @@ body{
   text-align: center;
 }
 
-form{
-  margin: 0 auto;
-  text-align: center;
-  font-size: 25px;
-}
-
-div{
-  font-size: 14px;
-  color: white;
-}
 .main{
-  max-width: 1400px;
+  max-width: 1900px;
   color: black;
-  min-width: 900px;
 }
 .row{
   width: 100%;
@@ -42,10 +41,10 @@ div{
   background-color: #848b94;
   text-align: center;
   text-align: 30px;
-  width: 25%;
+  width: 20%;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: 500px;
+  height: 440px;
   margin-left: 20px;
   box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
 }
@@ -53,13 +52,18 @@ div{
 .movies{
   background-color: #17131f;
   text-align: center;
-  width: 65%;
+  width: 50%;
   margin-left: 40px;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: 1000px;
+  height: 1200px;
   display: block;
   box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.4);
+}
+h2{
+  font-size: 40px;
+  font-family: "Quando";
+  text-shadow: 2px 2px black;
 }
 h3{
   margin-top: 40px;
@@ -68,14 +72,29 @@ h3{
 h3:hover{
   font-size: 1.8em;
 }
-p:nth-child(3n){
-  font-size: 45px;
-  color: white;
+h4{
+  font-size: 24px;
 }
-p:nth-child(3n):hover{
-  color: red;
-  border-radius: 100%;
+button{
+  font-size: 40px;
+  width: 2em;
+}
+p{
+  font-size: 25px;
+  display: inline;
+  margin-left: 30px;
+}
+img{
+  width: 30%;
+  height: 300px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
 
+.searchallmovies{
+  display: none;
 }
 .movies input{
   font-size: 25px;
@@ -85,14 +104,41 @@ p:nth-child(3n):hover{
   display: inline-table;
   font-size: 15px;
 }
-h2{
+.favorites{
   font-size: 40px;
-  font-family: "Quando";
-  text-shadow: 2px 2px black;
 }
-button{
-  font-size: 40px;
-  width: 2em;
+.saveFavorites{
+  background-color: rgba(255, 0, 0, 0.8);
+  width: 140px;
+  height: 60px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.favoritesDiv{
+  background-color: #848b94;
+  text-align: center;
+  text-align: 30px;
+  width: 20%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 800px;
+  margin-left: 20px;
+  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
+}
+.favorited{
+  font-size: 45px;
+}
+.favorites{
+  font-size: 45px;
+  color: white;
+  overflow: scroll;
+}
+.favorites:hover{
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 100%;
 }
 #signupsubmit{
   background-color: lemonchiffon;
@@ -115,32 +161,13 @@ button{
   font-weight: bolder;
   border-radius: 100%;
 }
-p{
-  font-size: 25px;
-  display: inline;
-  margin-left: 30px;
-}
-.searchallmovies{
-  display: none;
-}
 #placeholder{
-background-color: white;
-color: black;
-padding: 10px;
-font-size: 27px;
-font-weight: bolder;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 27px;
+  font-weight: bolder;
 }
 #placeholder:hover{
   background-color: lemonchiffon;
-}
-img{
-  width: 30%;
-  height: 300px;
-  margin: 0 auto;
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-.favorites{
-  font-size: 40px;
 }

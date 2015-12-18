@@ -1,9 +1,9 @@
 var users = {
-
+  // my json response to signup or login
   userInfo: {},
-
+  // this is an object for my ajax response request message. I plan to display messages to users.
   requestMessage: {},
-
+  // Changing the login displays for signup versus login for current users
   changeLogins: function(){
     var button = document.getElementById("placeholder");
     var click = 0;
@@ -27,7 +27,7 @@ var users = {
       }
     });
   },
-
+  // Need to push this signup and login code into one function and call it depending on signup versus logging in
   signup: function(evt){
     evt.preventDefault();
     var firstname = document.getElementById("firstname").value;
@@ -110,6 +110,7 @@ var users = {
     submit.classList.contains("login")? self.button.addEventListener("click", self.login) : self.button.addEventListener("click", self.signup);
   },
   hideSignUp: function(){
+    // want to take these into a separate object since I use these DOM elements frequently throughout my code
     var div = document.getElementsByClassName("signup")[0];
     var form = document.getElementsByTagName("form")[0];
     var search = document.getElementsByClassName("searchallmovies")[0];

@@ -8,6 +8,7 @@ var FavoriteSchema = new Schema ({
   title: String,
   favorite: Boolean,
   createdAt: {type: Date, default: Date.now},
+  user: {type: ObjectId, ref: "User"}
 });
 
 var UserSchema = new Schema ({
