@@ -1,12 +1,13 @@
 var express = require('express');
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/movies");
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/movies");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var fs = require('fs');
 var path = require('path');
 var session = require("express-session");
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +19,4 @@ app.use(session({resave: true, saveUninitialized: true, secret: 'movies', cookie
 var routes = require("./config/routes");
 app.use(routes);
 
-app.listen(3000, function(){
-  console.log("Listening on port 3000");
-});
+app.listen(port);

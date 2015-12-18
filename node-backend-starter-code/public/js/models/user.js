@@ -45,7 +45,7 @@ var users = {
       alert("You are missing all required fields!");
     }
     else{
-      var url = "http://localhost:3000/login";
+      var url = heroku + "/login";
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open('POST', url, true);
       xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -81,7 +81,7 @@ var users = {
       alert("You are missing all required fields!");
     }
     else{
-      var url = "http://localhost:3000/login";
+      var url = heroku + "/login";
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open('POST', url, true);
       xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
