@@ -25,7 +25,7 @@ var favs = {
       user: users.userInfo
     };
     console.log(fav);
-    var url ="http://localhost/favorites";
+    var url = "http://localhost:3000/favorites";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", url, true);
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

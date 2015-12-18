@@ -10,23 +10,39 @@
 <body>
   <div class="main">
     <div class="row">
-      <div class="signup forms">
-        <h2>Sign Up</h2>
-        <form>
-          <label for="firstname">firstname:</label>
-          <input type="text" placeholder="firstname" class="form-group" id="firstname">
-          <label for="lastname">lastname:</label>
-          <input type="text" placeholder="firstname" class="form-group" id="lastname">
-          <label for="email">email:</label>
-          <input type="text" placeholder="firstname" class="form-group" id="email">
-          <label for="password">password:</label>
-          <input type="password" placeholder="password" class="form-group" id="password">
-          <button type="submit" class="signup" id="signupsubmit">Submit</button>
-        </form>
+      <div class="userlogin forms">
+        <div class="signupform">
+          <form>
+            <h2>Sign Up</h2>
+            <label for="firstname">firstname:</label>
+            <input type="text" placeholder="firstname" class="form-group" id="firstname">
+            <label for="lastname">lastname:</label>
+            <input type="text" placeholder="firstname" class="form-group" id="lastname">
+            <label for="email">email:</label>
+            <input type="text" placeholder="firstname" class="form-group" id="email">
+            <label for="password">password:</label>
+            <input type="password" placeholder="password" class="form-group" id="password">
+            <button type="submit" id="signup" class="signupsubmit">Submit</button>
+          </form>
+        </div>
+        <div class= "loginform">
+          <form>
+            <h2>Log In</h2>
+            <label for="firstname">firstname:</label>
+            <input type="text" placeholder="firstname" class="form-group" id="firstname">
+            <label for="lastname">lastname:</label>
+            <input type="text" placeholder="firstname" class="form-group" id="lastname">
+            <label for="email">email:</label>
+            <input type="text" placeholder="firstname" class="form-group" id="email">
+            <label for="password">password:</label>
+            <input type="password" placeholder="password" class="form-group" id="password">
+            <button type="submit" id="login" class="signupsubmit">Submit</button>
+          </form>
+        </div>
       </div>
       <div class="movies forms">
         <h2>Movies</h2>
-        <p id="placeholder">Sign up to Find Movies!</p>
+        <p id="togglelogins">Click Here To Log In!</p>
         <div class="searchallmovies">
           <input type="text" class="form-control" id="movie" placeholder="search movies!">
           <button type="submit" id="submit">Submit</button>

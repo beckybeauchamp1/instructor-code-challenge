@@ -1,7 +1,6 @@
 var movies = {
   // object, pushing all movies from search
   allMovies: {},
-
   createMovies: function(){
     var search = document.getElementById("movie").value;
     var url = 'http://www.omdbapi.com/?s=' + search;

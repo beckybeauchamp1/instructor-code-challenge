@@ -30,23 +30,16 @@ div{
 }
 
 .main{
-  max-width: 1900px;
+  max-width: 1400px;
   color: black;
 }
 .row{
   width: 100%;
   color: black;
 }
-.signup{
-  background-color: #848b94;
-  text-align: center;
-  text-align: 30px;
-  width: 20%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  height: 440px;
-  margin-left: 20px;
-  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
+
+.loginform{
+  display: none;
 }
 
 .movies{
@@ -59,6 +52,17 @@ div{
   height: 1200px;
   display: block;
   box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.4);
+}
+.userlogin{
+  background-color: #848b94;
+  text-align: center;
+  text-align: 30px;
+  width: 20%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 440px;
+  margin-left: 20px;
+  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
 }
 h2{
   font-size: 40px;
@@ -100,10 +104,6 @@ img{
   font-size: 25px;
   margin: 0 auto;
 }
-.forms{
-  display: inline-table;
-  font-size: 15px;
-}
 .favorites{
   font-size: 40px;
 }
@@ -116,7 +116,6 @@ img{
   text-align: center;
   font-weight: bolder;
 }
-
 .favoritesDiv{
   background-color: #848b94;
   text-align: center;
@@ -140,7 +139,7 @@ img{
   color: rgba(255, 255, 255, 0.6);
   border-radius: 100%;
 }
-#signupsubmit{
+.signupsubmit{
   background-color: lemonchiffon;
   width: 94px;
   height: 40px;
@@ -161,13 +160,17 @@ img{
   font-weight: bolder;
   border-radius: 100%;
 }
-#placeholder{
+#togglelogins{
   background-color: white;
   color: black;
   padding: 10px;
   font-size: 27px;
   font-weight: bolder;
 }
-#placeholder:hover{
+#togglelogins:hover{
   background-color: lemonchiffon;
+}
+.forms{
+  display: inline-table;
+  font-size: 15px;
 }

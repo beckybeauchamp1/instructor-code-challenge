@@ -13,7 +13,7 @@ function error(response, message){
 router.post("/signup", function(req, res, callback){
   console.log(req.body);
   var newUser = new UserModel(req.body);
-  if(UserModel.findOne({'email' : req.body.email}, function(err, user){
+  UserModel.findOne({'email' : req.body.email}, function(err, user){
     // if there is an err will return a callback with that err from server
     if(err){
       return callback(err, res.status(401).send({message: err}));
@@ -23,19 +23,19 @@ router.post("/signup", function(req, res, callback){
       console.log("user exits");
       return callback(null, false, res.status(401).send({message: "Username already exists"}));
     }
-  }));
-  else{
-    newUser.save(function(err, user){
-      if(err){
-        console.log(err + "errrrror");
-        return res.status(401).send({message: err});
-      }
-      else{
-        console.log("no error" + user);
-        return res.status(200).send({message: "Welcome to our Movies Site!"});
-      }
-    });
-  }
+    else{
+      newUser.save(function(err, user){
+        if(err){
+          console.log(err + "errrrror");
+          return res.status(200).send({message: err});
+        }
+        else{
+          console.log("no error" + user);
+          return res.status(200).send({message: "Welcome to our Movies Site!"});
+        }
+      });
+    }
+  });
 });
 
 router.post("/login", function(req, res){
