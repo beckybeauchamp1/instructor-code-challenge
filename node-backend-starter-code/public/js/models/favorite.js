@@ -1,6 +1,5 @@
 var favs = {
-  addedFavorites: function(evt){
-    console.log("sjakdkasjndaksjdna");
+  addFavorites: function(evt){
     evt.preventDefault();
     var self = this;
     var favorites = document.getElementsByClassName("favorited");
@@ -8,14 +7,13 @@ var favs = {
       for(var i = 0; i < favorites.length; i ++){
         var favorite = favorites[i];
         var title = favorites[i].id;
-        favs.showFavorites(title);
         favs.grabFavs(title);
       }
     }
   },
   clickSave: function(){
     var button = document.getElementsByClassName("saveFavorites")[0];
-    button.addEventListener("click", favs.addedFavorites);
+    button.addEventListener("click", favs.addFavorites);
   },
   grabFavs: function(title){
     console.log("this is happening once");
@@ -38,11 +36,5 @@ var favs = {
       }
     };
     xmlhttp.send(JSON.stringify(fav));
-  },
-  showFavorites: function(title){
-    var favoritesDiv = document.getElementsByClassName("favoritesDiv")[0];
-    var h4 = document.createElement("h4");
-    h4.innerHTML = title;
-    favoritesDiv.appendChild(h4);
   }
 };

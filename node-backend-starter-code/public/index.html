@@ -11,27 +11,13 @@
   <div class="main">
     <div class="row">
       <div class="userlogin forms">
-        <div class="signupform">
-          <form>
-            <h2>Sign Up</h2>
-            <label for="firstname">firstname:</label>
-            <input type="text" placeholder="firstname" class="form-group" id="firstname">
-            <label for="lastname">lastname:</label>
-            <input type="text" placeholder="firstname" class="form-group" id="lastname">
-            <label for="email">email:</label>
-            <input type="text" placeholder="firstname" class="form-group" id="email">
-            <label for="password">password:</label>
-            <input type="password" placeholder="password" class="form-group" id="password">
-            <button type="submit" id="signup" class="signupsubmit">Submit</button>
-          </form>
-        </div>
         <div class= "loginform">
           <form>
             <h2>Log In</h2>
-            <label for="firstname">firstname:</label>
-            <input type="text" placeholder="firstname" class="form-group" id="firstname">
-            <label for="lastname">lastname:</label>
-            <input type="text" placeholder="firstname" class="form-group" id="lastname">
+            <label class="signup-users-name"for="firstname">firstname:</label>
+            <input class="signup-users-name form-group"type="text" placeholder="firstname" class="form-group" id="firstname">
+            <label class="signup-users-name" for="lastname">lastname:</label>
+            <input class="signup-users-name form-group"type="text" placeholder="firstname" class="form-group" id="lastname">
             <label for="email">email:</label>
             <input type="text" placeholder="firstname" class="form-group" id="email">
             <label for="password">password:</label>
@@ -42,7 +28,7 @@
       </div>
       <div class="movies forms">
         <h2>Movies</h2>
-        <p id="togglelogins">Click Here To Log In!</p>
+        <p id="togglelogins">Click Here To Sign up!</p>
         <div class="searchallmovies">
           <input type="text" class="form-control" id="movie" placeholder="search movies!">
           <button type="submit" id="submit">Submit</button>
@@ -55,8 +41,11 @@
   </div>
   <!--Because We are using Vanilla JS, I needed to include the script tags at the bottom of the html document, otherwise it will run before it has finished being processed.-->
   <script src="/js/models/user.js"></script>
-  <script src="/js/models/favorites.js"></script>
+  <script src="/js/models/favorite.js"></script>
   <script src="/js/models/movie.js"></script>
+  <script src="/js/views/userView.js"></script>
+  <script src="/js/views/favoriteView.js"></script>
+  <script src="/js/views/movieView.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>
