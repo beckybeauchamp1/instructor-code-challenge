@@ -1,1 +1,1 @@
-deployed version: https://dir-beauchamp-solution.herokuapp.com
+deployed version: https://beauchamp-dir.herokuapp.com/
