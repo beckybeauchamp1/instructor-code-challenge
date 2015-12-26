@@ -8,9 +8,11 @@ var users = {
   buttonEventListener: function(){
     var self = this;
     var submitButton = document.getElementsByClassName("signupsubmit")[0];
-    submitButton.addEventListener("click", self.identifyUser);
+    submitButton.addEventListener("click", self.loginUser);
   },
-  identifyUser: function(evt){
+  // this method is for both signup and login in, ajax request to backend
+  // This method is way to long, I defintely need to break down into seperate functions and refactor still:
+  loginUser: function(evt){
     evt.preventDefault();
     var submitButton = document.getElementsByClassName("signupsubmit")[0];
     var type = submitButton.id;
@@ -25,7 +27,6 @@ var users = {
       alert("You are missing all required " + type + " fields!");
     }
     else{
-      // signup had bugs, so placing function hideSignUp HERE:
       var user = {
         firstname: firstname,
         lastname: lastname,
@@ -59,8 +60,8 @@ var users = {
     }
     xmlhttp.send(JSON.stringify(user));
   },
+  // I need to break these down into separate functions
   hideSignUp: function(){
-    // want to take these into a separate object since I use these DOM elements frequently throughout my code
     var div = document.getElementsByClassName("userlogin")[0];
     var form = document.getElementsByTagName("form")[0];
     var search = document.getElementsByClassName("searchallmovies")[0];

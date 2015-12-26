@@ -42,7 +42,7 @@ router.post("/login", function(req, res){
       }
       if(match){
         res.status(200).send({message: "You have sucessfully logged in!", user: user });
-        // req.session.userId = user.id;
+
       }
     });
   }));
@@ -51,12 +51,13 @@ router.post("/login", function(req, res){
   }
 });
 
+// this needs to be changed to check if user matches, definitely next priority to refactor
+// I must have be tired when writing this :)
 router.post("/favorites", function(req, res, callback){
   var newFav = new FavoriteModel(req.body);
   FavoriteModel.findOne({title : req.body.title}, function(err, match){
     // if there is an err will return a callback with that err from server
     if(err) throw err;
-    // if it finds a user with the same email address
     else if(match){
       return callback(null, false, res.status(401).send({message: "Favorite Has Already Been Saved"}));
     }
@@ -72,7 +73,7 @@ router.post("/favorites", function(req, res, callback){
     }
   });
 });
-
+// if we were unable to send the user through json, then we have another get request to grab users
 router.get("/currentuser", function(req, res){
   var currentUser = req.body;
   UserModel.findOne({"email": currentUser.email}, function(err, user){
