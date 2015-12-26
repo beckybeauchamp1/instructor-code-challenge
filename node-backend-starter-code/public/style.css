@@ -30,7 +30,8 @@ div {
 }
 
 .main {
-  max-width: 1400px;
+  max-width: 1600px;
+  min-width: 400px;
   color: black;
 }
 .row {
@@ -62,7 +63,7 @@ div {
   padding-bottom: 30px;
   height: 620px;
   margin-left: 20px;
-  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.2);
 }
 h2 {
   font-size: 40px;
@@ -75,6 +76,8 @@ h3 {
 }
 h3:hover {
   font-size: 1.8em;
+  cursor: pointer;
+  cursor: hand;
 }
 h4 {
   font-size: 24px;
@@ -82,6 +85,8 @@ h4 {
 button {
   font-size: 40px;
   width: 2em;
+  cursor: pointer;
+  cursor: hand;
 }
 p {
   font-size: 25px;
@@ -127,7 +132,7 @@ img{
   padding-bottom: 30px;
   height: 800px;
   margin-left: 20px;
-  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.2);
 }
 .favorited {
   font-size: 45px;
@@ -178,9 +183,12 @@ img{
   padding: 10px;
   font-size: 27px;
   font-weight: bolder;
+  border: 5px solid gray;
 }
 #togglelogins:hover{
   background-color: lemonchiffon;
+  cursor: pointer;
+  cursor: hand;
 }
 .forms{
   display: inline-table;
@@ -203,7 +211,7 @@ img{
     }
   }
   .messages {
-    -webkit-animation: easeIn ease 2s;
+    -webkit-animation: easeIn ease 1s;
     animation-name: easeIn;
     animation-duration: 1.5s;
     animation-timing-function: ease-in;
@@ -212,9 +220,8 @@ img{
     padding-bottom: 200px;
   }
   .messages h3{
-    padding-top: 40px;
-    text-shadow: 1px 1px black;
+    background-color: rgba(0,0,0,0.7);
     font-family: "Quando";
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 35px;
+    color: white;
+    font-size: 25px;
   }

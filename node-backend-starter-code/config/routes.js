@@ -11,7 +11,6 @@ function error(response, message){
 }
 
 router.post("/signup", function(req, res, callback){
-  console.log(req.body);
   var newUser = new UserModel(req.body);
   UserModel.findOne({'email' : req.body.email}, function(err, user){
     // if there is an err will return a callback with that err from server

@@ -30,7 +30,6 @@ var movies = {
   clickEventFunction: function(e) {
     if (e.target !== e.currentTarget) {
       var clickedItem = e.target.id;
-      console.log(clickedItem);
       !movies.favsClick ? movies.addFavorite(e) : movies.eraseFavorite(e);
     }
     else {
@@ -46,27 +45,29 @@ var movies = {
     function HideMovieInfo(e){
       movies.click = 0;
       e.target.children[0].style.display = "none";
-      console.log(click);
       e.stopPropagation();
     }
   },
   addFavorite: function(e){
-    movies.favsClick++;
-    var title = e.target.id;
-    console.log(title);
-    e.target.style.color = "red";
-    e.target.setAttribute("class", "favorited");
-    favoritesView.showFavorites(title);
-    favs.grabFavs(title);
-    e.stopPropagation();
+    if(e.target.classList[0] === "favorites"){
+      movies.favsClick++;
+      var title = e.target.id;
+      e.target.style.color = "red";
+      e.target.setAttribute("class", "favorited");
+      favoritesView.showFavorites(title);
+      favs.grabFavs(title);
+      e.stopPropagation();
+    }
   },
   eraseFavorite: function(e){
-    movies.favsClick = 0;
-    var title = e.target.id;
-    e.target.style.color = "white";
-    e.target.classList.remove("favorited");
-    favoritesView.eraseFavs(title);
-    e.stopPropagation();
+    if(e.target.classList[0] === "favorited"){
+      movies.favsClick = 0;
+      var title = e.target.id;
+      e.target.style.color = "white";
+      e.target.setAttribute("class", "favorites");
+      favoritesView.eraseFavs(title);
+      e.stopPropagation();
+    }
   }
 
 };
