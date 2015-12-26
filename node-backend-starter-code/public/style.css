@@ -1,4 +1,4 @@
-* {
+*{
   box-sizing: border-box;
 }
 body{
@@ -60,7 +60,7 @@ div {
   width: 20%;
   padding-top: 30px;
   padding-bottom: 30px;
-  height: 440px;
+  height: 620px;
   margin-left: 20px;
   box-shadow: 9px 9px 9px 6px rgba(0, 0, 0, 0.3);
 }
@@ -96,6 +96,9 @@ img{
   margin-top: 10px;
   margin-bottom: 5px;
 }
+.left-side-divs {
+  display: block;
+}
 .searchallmovies {
   display: none;
 }
@@ -128,6 +131,7 @@ img{
 }
 .favorited {
   font-size: 45px;
+  animation-iteration-count: 2;
 }
 .favorites {
   font-size: 45px;
@@ -182,3 +186,35 @@ img{
   display: inline-table;
   font-size: 15px;
 }
+@keyframes easeIn {
+  from {
+    transform: scale(.5, .5);
+  }
+  to {
+    transform: scale(1, 1);
+    }
+  }
+  @-webkit-keyframes easeIn {
+    from {
+      transform: scale(.5, .5);
+    }
+    to {
+      transform: scale(1, 1);
+    }
+  }
+  .messages {
+    -webkit-animation: easeIn ease 2s;
+    animation-name: easeIn;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    margin-top: 80px;
+    margin-bottom: -25px;
+    padding-bottom: 200px;
+  }
+  .messages h3{
+    padding-top: 40px;
+    text-shadow: 1px 1px black;
+    font-family: "Quando";
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 35px;
+  }

@@ -1,20 +1,4 @@
 var favs = {
-  addFavorites: function(evt){
-    evt.preventDefault();
-    var self = this;
-    var favorites = document.getElementsByClassName("favorited");
-    if(favorites.length){
-      for(var i = 0; i < favorites.length; i ++){
-        var favorite = favorites[i];
-        var title = favorites[i].id;
-        favs.grabFavs(title);
-      }
-    }
-  },
-  clickSave: function(){
-    var button = document.getElementsByClassName("saveFavorites")[0];
-    button.addEventListener("click", favs.addFavorites);
-  },
   grabFavs: function(title){
     console.log("this is happening once");
     var fav = {

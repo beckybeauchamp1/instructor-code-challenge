@@ -3,6 +3,7 @@ var movies = {
   // object, pushing all movies from search
   allMovies: {},
   click: 0,
+  favsClick: 0,
   createMovies: function(){
     var search = document.getElementById("movie").value;
     var url = 'http://www.omdbapi.com/?s=' + search;
@@ -30,13 +31,14 @@ var movies = {
     if (e.target !== e.currentTarget) {
       var clickedItem = e.target.id;
       console.log(clickedItem);
-      movies.click ? movies.addFavorite(e) : movies.eraseFavorite(e);
+      !movies.favsClick ? movies.addFavorite(e) : movies.eraseFavorite(e);
     }
     else {
       !movies.click ? ShowMovieInfo(e) : HideMovieInfo(e);
     }
     function ShowMovieInfo(e){
       movies.click++;
+      movies.favsClick = 0;
       test = e.target;
       e.target.children[0].style.display = "block";
       e.stopPropagation();
@@ -49,17 +51,22 @@ var movies = {
     }
   },
   addFavorite: function(e){
+    movies.favsClick++;
     var title = e.target.id;
     console.log(title);
     e.target.style.color = "red";
     e.target.setAttribute("class", "favorited");
     favoritesView.showFavorites(title);
     favs.grabFavs(title);
+    e.stopPropagation();
   },
   eraseFavorite: function(e){
+    movies.favsClick = 0;
     var title = e.target.id;
     e.target.style.color = "white";
     e.target.classList.remove("favorited");
+    favoritesView.eraseFavs(title);
+    e.stopPropagation();
   }
 
 };
